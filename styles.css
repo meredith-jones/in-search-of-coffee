@@ -1,0 +1,32 @@
+.google-font {
+  font-family: 'Barrio', cursive;
+}
+
+body {
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+}
+
+
+#mybtn1, #mybtn2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.input {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+#mazegraphic {
+  position: relative;
+  left: 37%;
+}
+
+td {
+  width: 30px;
+  height: 30px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Maze Solver</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+    <script src="app.js"></script>
+  </head>
+  <body>
+   <h1 class="jumbotron google-font">Meredith's Maze</h1>
+   <h4>Your desk is at the top-left corner of the grid. Your mission is to find the coffee.</h4>
+   <h4>You may or may not be able to find it. Your fate is determined by Math.random--it is <em>random</em> who makes the walls.</h4>
+<form id="frm1" >
+      Columns: <input type="text" class="input" name="columns" value="10">
+      Rows: <input type="text" name="rows" class="input" value="10">
+      % of walls: <input type="text" name="threshold" class="input" value="0.3">
+    </form>
+    <button id="mybtn1" type="button" class="btn btn-info btn-sm">make maze</button>
+    <button id="mybtn2" type="button" class="btn btn-success btn-sm">solve it</button>
+    <div id='mazegraphic'></div>
+    <div id='unsolvable'></div>
+  </body>
+  <script>
+  document.getElementById("mybtn2").style.visibility = "hidden";
+   document.getElementById("mybtn1").addEventListener("click", function(){
+    document.getElementById("mybtn2").style.visibility = "visible";
+    var frm1 = document.getElementById("frm1");
+    newmaze = createMaze(parseInt(frm1.rows.value),parseInt(frm1.columns.value),parseFloat(frm1.threshold.value));
+    var finalmaze = createmazetable(newmaze);
+    document.getElementById('mazegraphic').innerHTML = finalmaze;
+   });
+   document.getElementById("mybtn2").addEventListener("click", function(){
+    document.getElementById('unsolvable').innerHTML ="";
+    var checkMaze = new mazeTraverser(newmaze);
+    checkMaze.traverse(0, 0);
+    var rightpath = checkMaze.getpath();
+    if (rightpath.length===0) {
+      document.getElementById('unsolvable').innerHTML = '<h1 class="google-font" style="color:red">Maze unsolvable. NO COFFEE FOR YOU. :( </h1>';
+    } else {
+        for (var i = 0; i < rightpath.length; i++) {
+          newmaze[rightpath[i][0]][rightpath[i][1]]='P';
+        };
+        var finalmaze = createmazetable(newmaze);
+        document.getElementById('mazegraphic').innerHTML = finalmaze;
+        document.getElementById('unsolvable').innerHTML = '<h1 class="google-font" style="color:green">FOUND COFFEE. You shall survive another day.</h1>';
+    }
+
+   });
+
+
+  </script>
+</html>
