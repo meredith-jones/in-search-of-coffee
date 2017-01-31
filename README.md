@@ -5,7 +5,7 @@
 
 *a web browser app made by Meredith Jones*
 
-*This app uses HTML, JavaScript, and CSS, and includes Bootstrap.*
+*This app uses HTML, JavaScript, and CSS, and includes Bootstrap and Google Fonts.*
 
 ### To use this app:
 1. Click the green 'Clone or download' button on the upper right, and copy the link.
