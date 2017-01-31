@@ -48,7 +48,7 @@ function createmazetable(maze){
 }
 
 // takes in maze
-// recursively calls traverse function to find solution or declare unsolvable:
+// recursively calls 'traverse' function to find solution or declare unsolvable:
 function mazeTraverser(maze){
   this.maze = maze;
   var path = [];
@@ -98,20 +98,3 @@ function mazeTraverser(maze){
     return -9;
   }
 }
-
-
-// sample maze before maze generation function:
-// var maze1 = [
-//     ['.', '.', '.', 'x', '.', 'x', 'x', '.', '.', 'x'],
-//     ['x', 'x', '.', '.', 'x', 'x', 'x', '.', '.', 'x'],
-//     ['.', '.', 'x', '.', '.', '.', 'x', '.', '.', 'x'],
-//     ['x', 'x', '.', '.', 'x', '.', '.', '.', 'x', 'x'],
-//     ['.', '.', 'x', '.', '.', 'x', 'x', '.', '.', 'x'],
-//     ['x', 'x', '.', '.', 'x', 'x', 'x', '.', '.', 'x'],
-//     ['.', '.', 'x', '.', '.', '.', '.', '.', 'x', 'x'],
-//     ['x', 'x', '.', '.', 'x', 'x', 'x', 'x', '.', 'x'],
-//     ['.', '.', '.', '.', '.', 'x', 'x', '.', 'x', 'x'],
-//     ['*', '.', '.', 'x', 'x', 'x', '.', '.', '.', 'x']];
-
-// var checkMaze = new mazeTraverser(maze1);
-// checkMaze.traverse(0, 0);
